@@ -15,33 +15,28 @@ const categorias = [
 const Empleados = () => {
 
 
-const {name, setName,lastName, setLastName,birthday, setBirthday,email, setEmail,address, setAddress,hireDate, setHireDate,
+const { name, setName,lastName, setLastName,birthday, setBirthday,email, setEmail,address, setAddress,hireDate, setHireDate,
   password, setPassword,telephone, setTelephone,dui, setDui,issNumber, setIssNumber,
-    isVerified, setIsVerified, agregarEmp,employees, deleteEmployee}=  useDataEmployees()
+    isVerified, setIsVerified, agregarEmp,employees, deleteEmployee,handleEdit, updateEmployees, id, setId}=  useDataEmployees()
   return (
     <div className="categorias-page">
       <div className="grid-categorias">
         {employees.map((emp, i) => (
           <Emp
             key={i}
-            nombre={emp.name}
-            apellido={emp.lastName}
-            cumpleaños={emp.birthday}
-            email={emp.email}
-            direccion={emp.address}
-            contratacion={emp.hireDate}
-            contra={emp.password}
-            tel={emp.telephone}
-            dui={emp.dui}
-            verificado={emp.isVerified}
+           employees={emp}
              deleteEmployee={deleteEmployee}
+            handleEdit={handleEdit}
+             updateEmployee={updateEmployees}
+             employee={emp}
            
-            on={() => alert("Editar " + emp.name)}
-           // deleteEmployee={() => alert("Eliminar " + emp.name)}
+            
           />
         ))}
       </div>
       <Agregaremp 
+      id={id}
+        setId={setId}
       name={name}
      setName={setName}
        lastName={lastName}
@@ -65,9 +60,16 @@ const {name, setName,lastName, setLastName,birthday, setBirthday,email, setEmail
         isVerified={isVerified}
       setIsVerified={setIsVerified}
       agregarEmp={agregarEmp}
+          handleEdit={handleEdit}
+             updateEmployee={updateEmployees}
+              employee={employees}
 
       />
+
+     
     </div>
+
+    
   );
 };
 

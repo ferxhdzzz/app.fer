@@ -1,17 +1,14 @@
 import React from "react";
 import "./AgregarCard.css";
 
-const AgregarCard = ({  name, setName,lastName, setLastName,birthday, setBirthday,email, setEmail,address, setAddress,hireDate, setHireDate,
-  password, setPassword,telephone, setTelephone,dui, setDui,issNumber, setIssNumber,
-    isVerified, setIsVerified, agregarEmp, id, handleEdit
+const AgregarCard = ({  name, setName,lastName, setLastName,birthday, setBirthday,email, setEmail,
+  password, setPassword,telephone, setTelephone,dui, setDui, isVerified, setIsVerified, agregarCus, handleEdit, id
 }) => {
-
-
 
 
   return (
     <div className="form-categoria">
-      <h3>Agregar Empleado</h3>
+      <h3>Agregar Cliente</h3>
 
       
       <br />
@@ -20,7 +17,7 @@ const AgregarCard = ({  name, setName,lastName, setLastName,birthday, setBirthda
       value={name || ""}
       onChange={(e)=> setName(e.target.value)}/>
 
-      <label >Apellido: {lastName}</label>
+      <label >Apellido:</label>
       <input type="text" placeholder="" 
       value={lastName || ""}
       onChange={(e)=> setLastName(e.target.value)}/>
@@ -36,15 +33,7 @@ const AgregarCard = ({  name, setName,lastName, setLastName,birthday, setBirthda
       value={email || ""}
       onChange={(e)=> setEmail(e.target.value)}/>
 
-      <label >Direccion: </label>
-      <input type="text" placeholder="" 
-      value={address || ""}
-      onChange={(e)=> setAddress(e.target.value)}/>
       
-      <label >Fecha de contratacion: </label>
-      <input type="date" placeholder="" 
-      value={hireDate || ""}
-      onChange={(e)=> setHireDate(e.target.value)}/>
       
       <label >Contraseña: </label>
       <input type="password" placeholder="" 
@@ -62,11 +51,7 @@ const AgregarCard = ({  name, setName,lastName, setLastName,birthday, setBirthda
       value={dui || ""}
       onChange={(e)=> setDui(e.target.value)}/>
       
-        <label >Numero iss: </label>
-      <input type="text" placeholder="" 
-      value={issNumber || ""}
-      onChange={(e)=> setIssNumber(e.target.value)}/>
-
+    
       <label >Verificado: </label>
       <input type="text" placeholder="" 
       value={isVerified || ""}
@@ -79,7 +64,7 @@ const AgregarCard = ({  name, setName,lastName, setLastName,birthday, setBirthda
           <button
             type="submit"
             className="btn-agregar"
-            onClick={(e) => agregarEmp(e)}
+            onClick={(e) => agregarCus(e)}
           >
             Guardar
           </button>
@@ -89,7 +74,7 @@ const AgregarCard = ({  name, setName,lastName, setLastName,birthday, setBirthda
             className="btn-agregar"
             onClick={(e) => handleEdit(e)}
           >
-            Editar 
+            Editar
           </button>
            )}
     </div>

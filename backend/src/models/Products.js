@@ -6,7 +6,7 @@ type: String,
 require: true
     },
 
-    descripction:{
+    description:{
 type: String
     },
 

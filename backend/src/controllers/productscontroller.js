@@ -14,8 +14,8 @@ productsController.getProducts = async (req, res) => {
 //post - agregar
 
 productsController.createProducts = async (req, res) => {
-    const {name, descripction, price, stock} = req.body; //req.body = lo que le pedimos al frontend
-    const  newproduct = new productsModel({name, descripction, price, stock});
+    const {name, description, price, stock} = req.body; //req.body = lo que le pedimos al frontend
+    const  newproduct = new productsModel({name, description, price, stock});
     await newproduct.save()
     res.json({message: "product saved"})
 }
@@ -29,10 +29,10 @@ res.json({message: "product deleted"})
 
 // actualizar - post
 productsController.updatesProducts = async (req, res) =>{
-const {name, descripction, price, stock} = req.body; // solicito los valores
+const {name, description, price, stock} = req.body; // solicito los valores
 await productsModel.findByIdAndUpdate(req.params.id, {
     name,
-    descripction,
+    description,
     price, 
     stock
 }, {new: true});

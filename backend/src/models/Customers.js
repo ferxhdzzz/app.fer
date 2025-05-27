@@ -12,7 +12,7 @@ require: true
     },
 
     birthday: {
-        type: Date,
+        type: String,
         require: true,
         
     },
