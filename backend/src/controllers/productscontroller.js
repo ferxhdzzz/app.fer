@@ -36,7 +36,7 @@ await productsModel.findByIdAndUpdate(req.params.id, {
     price, 
     stock
 }, {new: true});
-res.json({message: "product deleted"})
+res.json({message: "product updated"})
 }
 
 export default productsController;
