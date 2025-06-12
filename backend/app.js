@@ -1,5 +1,5 @@
  // importo la libreria
-import express from "express"
+import express, { json } from "express"
 import productsRoutes from "./src/routes/products.js"
 import customersRoutes from "./src/routes/customers.js"
 import emloyeesRoutes from "./src/routes/employees.js"
@@ -12,6 +12,14 @@ import logout from "./src/routes/logout.js"
 import recoveryPassword from "./src/routes/recoveryPassword.js"
 import faqsRoutes from "./src/routes/faqs.js"
 import cors from "cors"
+
+
+import fs from "fs"
+import path from "path"
+
+
+import swaggerUi from "swagger-ui-express"
+
 import cookieParser from "cookie-parser"
 
 
@@ -27,6 +35,13 @@ app.use(express.json())
 //permitir los archivos json
 
 app.use(cookieParser())
+
+const swaggerDocument = JSON.parse (
+  fs.readFileSync(path.resolve("./ricaldone-24f-ZonadigitalDb-1.0.0-resolved.json"), "utf-8")
+)
+
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+
 
 //definir las rutas de las funciones en la app
 app.use("/api/products", productsRoutes)
