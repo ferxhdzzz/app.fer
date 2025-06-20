@@ -11,6 +11,8 @@ import login from "./src/routes/login.js"
 import logout from "./src/routes/logout.js"
 import recoveryPassword from "./src/routes/recoveryPassword.js"
 import faqsRoutes from "./src/routes/faqs.js"
+import salesRoutes from "./src/routes/sales.js"
+
 import cors from "cors"
 
 
@@ -55,6 +57,7 @@ app.use("/api/logout", logout)
 app.use("/api/registerCustomers", registerCustomerRoutes)
 app.use("/api/recoveryPassword", recoveryPassword)
 app.use("/api/faqs", faqsRoutes)
+app.use("/api/sales", salesRoutes)
 
 
 
