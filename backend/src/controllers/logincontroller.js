@@ -37,12 +37,36 @@ if(!userFound){
     return res.json ({message: "User not found "})
 }
 
+if(userType !== "admin"){
+if(userFound.timeOut>Date.now()){
+const minutosRestantes = Math.ceil(userFound.timeOut - Date.now()/60000)
+res.status(403).json({message: "cuenta bloqueada" + minutosRestantes})
+
+} 
+  }
 
 if(userType !== "admin"){
     const isMatch = await bcryptjs.compare(password, userFound.password)
     if (!isMatch){
+
+        //contador de intentos fallidos
+        userFound.loginAttemps = userFound.loginAttemps + 1
+
+        if(userFound.loginAttemps >=3){
+            userFound.timeOut = Date.now + 5*60*1000
+
+userFound.loginAttemps = 0
+
+            await userType.save()
+            res.status(403).json({message: "cuenta bloqueada"})
+        }
+
+await userFound.save()
         res.json({message: "invalid password"})
     }
+    userFound.loginAttemps = 0
+    userFound.timeOut = null
+    await userFound.save()
 }
 
 jsonwebtoken.sign (

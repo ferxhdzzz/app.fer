@@ -64,6 +64,17 @@ require: true
     isVerfied: {
         type: Boolean
        
+    },
+     loginAttemps: {
+        type: Number,
+        default: 0
+        
+       
+    },
+    timeOut: {
+        type: Date,
+               default:null
+
     }
     
     
