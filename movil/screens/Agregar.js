@@ -10,7 +10,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
-import Button from "../components/ButtonUser"; // Usa tu botón genérico
+import Button from "../components/ButtonUser";
 import useFetchUser from "../hooks/useFetch";
 
 const AddUser = () => {
@@ -42,70 +42,91 @@ const AddUser = () => {
           contentContainerStyle={styles.container}
           keyboardShouldPersistTaps="handled"
         >
-          <Text style={styles.title}>Agregar Usuario</Text>
+          <Text style={styles.title}>agregar usuario</Text>
           <Text style={styles.subtitle}>
-            Ingresa la información del nuevo usuario
+            ingresa la información del usuario
           </Text>
 
-          <TextInput
-            style={styles.input}
-            placeholder="Nombre"
-            value={name}
-            onChangeText={setName}
-            placeholderTextColor="#A1866F"
-          />
+          <View style={styles.field}>
+            <Text style={styles.label}>Nombre</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Nombre"
+              value={name}
+              onChangeText={setName}
+              placeholderTextColor="#AAB2C8"
+            />
+          </View>
 
-          <TextInput
-            style={styles.input}
-            placeholder="Apellido"
-            value={lastName}
-            onChangeText={setLastName}
-            placeholderTextColor="#A1866F"
-          />
+          <View style={styles.field}>
+            <Text style={styles.label}>Apellido</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Apellido"
+              value={lastName}
+              onChangeText={setLastName}
+              placeholderTextColor="#AAB2C8"
+            />
+          </View>
 
-          <TextInput
-            style={styles.input}
-            placeholder="Fecha de nacimiento (YYYY-MM-DD)"
-            value={birthday}
-            onChangeText={setBirthday}
-            placeholderTextColor="#A1866F"
-          />
+          <View style={styles.field}>
+            <Text style={styles.label}>Fecha de nacimiento</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="YYYY-MM-DD"
+              value={birthday}
+              onChangeText={setBirthday}
+              placeholderTextColor="#AAB2C8"
+            />
+          </View>
 
-          <TextInput
-            style={styles.input}
-            placeholder="Correo"
-            value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-            placeholderTextColor="#A1866F"
-          />
+          <View style={styles.field}>
+            <Text style={styles.label}>Correo</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Correo"
+              value={email}
+              onChangeText={setEmail}
+              keyboardType="email-address"
+              placeholderTextColor="#AAB2C8"
+            />
+          </View>
 
-          <TextInput
-            style={styles.input}
-            placeholder="Contraseña"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-            placeholderTextColor="#A1866F"
-          />
+          <View style={styles.field}>
+            <Text style={styles.label}>Contraseña</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Contraseña"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+              placeholderTextColor="#AAB2C8"
+            />
+          </View>
 
-          <TextInput
-            style={styles.input}
-            placeholder="Teléfono"
-            value={telephone}
-            onChangeText={setTelephone}
-            keyboardType="phone-pad"
-            placeholderTextColor="#A1866F"
-          />
+          <View style={styles.field}>
+            <Text style={styles.label}>Teléfono</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Teléfono"
+              value={telephone}
+              onChangeText={setTelephone}
+              keyboardType="phone-pad"
+              placeholderTextColor="#AAB2C8"
+            />
+          </View>
 
-          <TextInput
-            style={styles.input}
-            placeholder="DUI"
-            value={dui}
-            onChangeText={setDui}
-            keyboardType="numeric"
-            placeholderTextColor="#A1866F"
-          />
+          <View style={styles.field}>
+            <Text style={styles.label}>DUI</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="DUI"
+              value={dui}
+              onChangeText={setDui}
+              keyboardType="numeric"
+              placeholderTextColor="#AAB2C8"
+            />
+          </View>
 
           <View style={styles.buttonWrapper}>
             <Button texto="Guardar" action={handleGuardar} />
@@ -119,32 +140,39 @@ const AddUser = () => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: "#EAD8C0",
+    backgroundColor: "#0A1F44",
     padding: 20,
     justifyContent: "flex-start",
   },
   title: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: "bold",
     textAlign: "center",
     marginVertical: 10,
-    color: "#5C3D2E",
+    color: "#FFFFFF",
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 16,
     textAlign: "center",
     marginBottom: 20,
-    color: "#5C3D2E",
+    color: "#AAB2C8",
+  },
+  field: {
+    marginBottom: 16,
+  },
+  label: {
+    color: "#FFFFFF",
+    fontSize: 14,
+    marginBottom: 6,
   },
   input: {
     width: "100%",
     borderWidth: 1,
-    borderColor: "#5C3D2E",
-    borderRadius: 8,
-    padding: 12,
-    marginVertical: 10,
-    backgroundColor: "#FFF",
-    color: "#000",
+    borderColor: "#AAB2C8",
+    borderRadius: 10,
+    padding: 14,
+    backgroundColor: "#13294B",
+    color: "#FFFFFF",
   },
   buttonWrapper: {
     marginTop: 30,

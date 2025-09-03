@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
-import Button from "../components/ButtonUser"; // 👈 corregido
+import Button from "../components/ButtonUser";
 
 export default function Home({ navigation }) {
   const irShowUsers = () => {
@@ -10,12 +10,12 @@ export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Image source={require("../assets/yun.png")} style={styles.image} />
-      <Text style={styles.title}>holahola</Text>
+      <Text style={styles.title}>Holaaa</Text>
       <Text style={styles.subtitle}>
-        este es un ejemplo de como conectar una aplicacion movil al backend
+        Este es un ejemplo de cómo conectar una aplicación móvil al backend.
       </Text>
 
-      <Button texto="Ver todos los usuarios" action={irShowUsers} /> 
+      <Button texto="Ver todos los usuarios" action={irShowUsers} />
     </View>
   );
 }
@@ -23,29 +23,32 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F5EFE6",
+    backgroundColor: "#0A1F44", // Azul marino
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
   },
   image: {
-    width: 120,
-    height: 120,
-    marginBottom: 20,
-    borderRadius: 10,
-  },
+    width: 140,
+    height: 140,
+    marginBottom: 30,
+    borderRadius: 70, // Mitad del tamaño para hacerlo redondo
+    borderWidth: 2,
+    borderColor: "#FFFFFF", // Opcional: borde blanco para un look más limpio
+  }
+  ,
   title: {
     fontSize: 28,
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 10,
-    color: "#3B2F2F",
+    color: "#FFFFFF", // Blanco
   },
   subtitle: {
-    fontSize: 18,
-    fontWeight: "500",
+    fontSize: 16,
+    fontWeight: "400",
     textAlign: "center",
-    marginBottom: 20,
-    color: "#7D5A50",
+    marginBottom: 30,
+    color: "#AAB2C8", // Gris claro
   },
 });

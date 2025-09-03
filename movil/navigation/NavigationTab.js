@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Platform } from "react-native";
 
-// Importando las pantallas
+// Pantallas
 import Home from "../screens/Home";
 import ShowUser from "../screens/Usuario";
 import AddUser from "../screens/Agregar";
@@ -15,12 +15,13 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: "#AF8260", // íconos activos
-        tabBarInactiveTintColor: "#B99873", // íconos inactivos
+        tabBarActiveTintColor: "#3E92CC", // Azul claro (activo)
+        tabBarInactiveTintColor: "#AAB2C8", // Gris azulado (inactivo)
         tabBarStyle: {
-          backgroundColor: "#FFF",
+          backgroundColor: "#0A1F44", // Azul marino de fondo
           height: Platform.OS === "ios" ? 80 : 60,
           borderTopWidth: 0,
+          elevation: 10,
         },
         tabBarIcon: ({ focused, color }) => {
           let iconName;
@@ -41,16 +42,16 @@ const TabNavigator = () => {
         },
       })}
     >
-      <Tab.Screen name="Home" component={Home} options={{ title: "Inicio" }} />
+      <Tab.Screen name="Home" component={Home} options={{ title: "inicio" }} />
       <Tab.Screen
         name="ShowUser"
         component={ShowUser}
-        options={{ title: "Usuarios" }}
+        options={{ title: "registros" }}
       />
       <Tab.Screen
         name="AddUser"
         component={AddUser}
-        options={{ title: "Agregar" }}
+        options={{ title: "registrar" }}
       />
     </Tab.Navigator>
   );
