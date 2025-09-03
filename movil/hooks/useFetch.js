@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Alert } from "react-native";
 
-const API_URL = "http://192.168.1.10:4000/api/customers";
+const API_URL = "http://192.168.56.1:4000/api/customers";
 
 
 const useFetchUser = () => {

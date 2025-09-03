@@ -10,7 +10,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
-import Button from "../components/Button"; // Usa tu botón genérico
+import Button from "../components/ButtonUser"; // Usa tu botón genérico
 import useFetchUser from "../hooks/useFetch";
 
 const AddUser = () => {

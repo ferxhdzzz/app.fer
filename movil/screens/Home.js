@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
-import Button from "../components/Button"; // 👈 corregido
+import Button from "../components/ButtonUser"; // 👈 corregido
 
 export default function Home({ navigation }) {
   const irShowUsers = () => {
@@ -9,7 +9,7 @@ export default function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Image source={require("../../assets/yun.png")} style={styles.image} />
+      <Image source={require("../assets/yun.png")} style={styles.image} />
       <Text style={styles.title}>holahola</Text>
       <Text style={styles.subtitle}>
         este es un ejemplo de como conectar una aplicacion movil al backend
