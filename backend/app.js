@@ -12,6 +12,10 @@ import logout from "./src/routes/logout.js"
 import recoveryPassword from "./src/routes/recoveryPassword.js"
 import faqsRoutes from "./src/routes/faqs.js"
 import salesRoutes from "./src/routes/sales.js"
+import { validateAuthToken } from "./src/middleware/validateAuthToken.js";
+import limiter from "./src/middleware/raterLimiter.js"
+
+
 
 import cors from "cors"
 
@@ -38,6 +42,8 @@ app.use(express.json())
 
 app.use(cookieParser())
 
+app.use(limiter);
+
 const swaggerDocument = JSON.parse (
   fs.readFileSync(path.resolve("./ricaldone-24f-ZonadigitalDb-1.0.0-resolved.json"), "utf-8")
 )
@@ -51,7 +57,7 @@ app.use("/api/customers",customersRoutes)
 app.use("/api/employees",emloyeesRoutes)
 app.use("/api/branches",branchesRoutes)
 app.use("/api/reviews",reviweRoutes)
-app.use("/api/registerEmployees",registerEmployeeRoutes)
+app.use("/api/registerEmployees",validateAuthToken(["admin"]),registerEmployeeRoutes);
 app.use("/api/login", login)
 app.use("/api/logout", logout)
 app.use("/api/registerCustomers", registerCustomerRoutes)
